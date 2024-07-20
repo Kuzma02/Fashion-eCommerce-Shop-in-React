@@ -1,6 +1,10 @@
+import { Banner } from "../components";
+
 const Landing = () => {
   return (
-    <div>Landing</div>
-  )
-}
-export default Landing
+    <>
+    <Banner />
+    </>
+  );
+};
+export default Landing;

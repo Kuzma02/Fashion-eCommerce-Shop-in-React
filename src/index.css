@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: "Merriweather", serif;
+}
+
+.banner{
+  height: 800px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), url("/src/assets/banner.jpg") lightgray 50% / cover no-repeat;
+  background-position: 10% 25%;
+}
