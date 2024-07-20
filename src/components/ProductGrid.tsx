@@ -3,6 +3,7 @@ import ProductItem from "./ProductItem"
 const ProductGrid = () => {
   return (
     <div className="max-w-screen-2xl flex flex-wrap justify-between items-center gap-y-8 mx-auto mt-12">
+      
         <ProductItem image="product image 1.jpg" title="Luxury Dress" category="Best-selling luxury clothing" price="$3500" />
         <ProductItem image="product image 2.jpg" title="Luxury Black Clothing" category="Best-selling luxury clothing" price="$1050" />
         <ProductItem image="product image 3.jpg" title="Luxury Blue Dress" category="Best-selling luxury clothing" price="$5000" />
