@@ -1,9 +1,11 @@
-import { Banner } from "../components";
+import { Banner, HomeCollectionFilter, ProductGrid } from "../components";
 
 const Landing = () => {
   return (
     <>
     <Banner />
+    <HomeCollectionFilter />
+    <ProductGrid />
     </>
   );
 };

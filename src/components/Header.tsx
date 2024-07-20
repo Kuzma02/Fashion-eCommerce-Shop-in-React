@@ -6,7 +6,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center py-4 px-14 text-black">
+    <header className="max-w-screen-2xl flex justify-between items-center py-4 px-14 text-black mx-auto">
       <HiBars3 className="text-2xl" />
       <h2 className="text-4xl font-light tracking-[1.08px]">FASHION</h2>
       <div className="flex gap-4 items-center">
