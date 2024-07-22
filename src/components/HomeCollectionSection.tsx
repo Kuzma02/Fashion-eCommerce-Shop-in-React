@@ -3,9 +3,10 @@ import ProductGrid from "./ProductGrid";
 
 const HomeCollectionSection = () => {
   return (
-    <div className="px-5 max-[400px]:px-3">
+    <div>
       <HomeCollectionFilter />
       <ProductGrid />
+      
     </div>
   );
 };
