@@ -3,6 +3,7 @@ import {
   HomeLayout,
   Landing,
   Shop,
+  SingleProduct,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+      },
+      {
+        path: "product/:id",
+        element: <SingleProduct />,
       }
     ],
   },

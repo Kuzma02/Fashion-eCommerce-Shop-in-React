@@ -10,3 +10,4 @@ export { default as SocialMediaFooter } from "./SocialMediaFooter";
 export { default as ShopBanner } from "./ShopBanner";
 export { default as ShopFilterAndSort } from "./ShopFilterAndSort";
 export { default as ShowingPagination } from "./ShowingPagination";
+export { default as StandardSelectInput } from "./StandardSelectInput";

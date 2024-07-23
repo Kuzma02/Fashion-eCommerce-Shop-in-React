@@ -6,12 +6,29 @@ body {
   font-family: "Merriweather", serif;
 }
 
-.banner{
+.banner {
   height: 800px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%), url("/src/assets/banner1.jpg") lightgray 50% / cover no-repeat;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    url("/src/assets/banner1.jpg") lightgray 50% / cover no-repeat;
   background-position: 10% 25%;
 }
 
-.shop-banner{
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 100%), url("/src/assets/shopbanner1.png") lightgray 3.589px 1.817px / 100% 197.462% no-repeat;
+.shop-banner {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("/src/assets/shopbanner1.png") lightgray 3.589px 1.817px / 100% 197.462%
+      no-repeat;
+}
+
+.styled-select {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
 }
