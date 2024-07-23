@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
+  Cart,
   HomeLayout,
   Landing,
   Shop,
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "product/:id",
         element: <SingleProduct />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       }
     ],
   },

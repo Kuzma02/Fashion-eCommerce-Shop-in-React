@@ -8,5 +8,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: ["@tailwindcss/forms"],
 };
