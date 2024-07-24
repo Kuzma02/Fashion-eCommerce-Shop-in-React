@@ -15,7 +15,9 @@ const Header = () => {
         FASHION
       </Link>
       <div className="flex gap-4 items-center max-sm:gap-2">
-        <HiOutlineMagnifyingGlass className="text-2xl max-sm:text-xl" />
+        <Link to="/search">
+          <HiOutlineMagnifyingGlass className="text-2xl max-sm:text-xl" />
+        </Link>
         <HiOutlineUser className="text-2xl max-sm:text-xl" />
         <Link to="/cart">
           <HiOutlineShoppingBag className="text-2xl max-sm:text-xl" />

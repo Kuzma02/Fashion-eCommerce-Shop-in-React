@@ -4,6 +4,7 @@ import {
   Checkout,
   HomeLayout,
   Landing,
+  Search,
   Shop,
   SingleProduct,
 } from "./pages";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+      },
+      {
+        path: "search",
+        element: <Search />,
       }
     ],
   },
