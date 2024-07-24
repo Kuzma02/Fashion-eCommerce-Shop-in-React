@@ -41,7 +41,7 @@ const Cart = () => {
   return (
     <div className="bg-white mx-auto max-w-screen-2xl px-5 max-[400px]:px-3">
     <div className="pb-24 pt-16">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
+      <h1 className="text-3xl tracking-tight text-gray-900 sm:text-4xl">Shopping Cart</h1>
       <form className="mt-12 lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-12 xl:gap-x-16">
         <section aria-labelledby="cart-heading" className="lg:col-span-7">
           <h2 id="cart-heading" className="sr-only">
