@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Luxury Dress",
+      "image": "product image 1.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$3500"
+    },
+    {
+      "id": "2",
+      "title": "Luxury Black Clothing",
+      "image": "product image 2.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$1050"
+    },
+    {
+      "id": "3",
+      "title": "Luxury Blue Dress",
+      "image": "product image 3.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$5000"
+    },
+    {
+      "id": "4",
+      "title": "Special Brown Dress",
+      "image": "product image 4.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$2500"
+    },
+    {
+      "id": "5",
+      "title": "Special Luxury Dress",
+      "image": "product image 5.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$5200"
+    },
+    {
+      "id": "5",
+      "title": "Super Luxury Dress",
+      "image": "product image 6.jpg",
+      "category": "Best-selling luxury clothing",
+      "price": "$8500"
+    }
+
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

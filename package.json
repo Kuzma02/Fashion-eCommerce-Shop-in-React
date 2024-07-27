@@ -12,6 +12,8 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@tailwindcss/forms": "^0.5.7",
+    "json-server": "^1.0.0-beta.1",
+    "nanoid": "^5.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",

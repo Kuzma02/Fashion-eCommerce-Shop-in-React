@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const ProductItem = ({
+  id,
   image,
   title,
   category,
   price,
 }: {
+  id: string;
   image: string;
   title: string;
   category: string;
@@ -15,13 +17,13 @@ const ProductItem = ({
   return (
     <div className="w-[400px] flex flex-col gap-2 justify-center max-md:w-[300px]">
       <Link
-        to={`/product/${title}`}
+        to={`/product/${id}`}
         className="w-full h-[300px] max-md:h-[200px] overflow-hidden"
       >
         <img src={`/src/assets/${image}`} alt={title} />
       </Link>
       <Link
-        to={`/product/${title}`}
+        to={`/product/${id}`}
         className="text-black text-center text-3xl tracking-[1.02px] max-md:text-2xl"
       >
         <h2>{title}</h2>

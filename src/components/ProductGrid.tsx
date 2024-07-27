@@ -1,15 +1,31 @@
-import ProductItem from "./ProductItem"
+import { useEffect, useState } from "react";
+import ProductItem from "./ProductItem";
+import { nanoid } from "nanoid";
 
 const ProductGrid = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("http://localhost:3000/products");
+      const data = await response.json();
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
   return (
     <div className="max-w-screen-2xl flex flex-wrap justify-between items-center gap-y-8 mx-auto mt-12 max-xl:justify-start max-xl:gap-5 px-5 max-[400px]:px-3">
-        <ProductItem image="product image 1.jpg" title="Luxury Dress" category="Best-selling luxury clothing" price="$3500" />
-        <ProductItem image="product image 2.jpg" title="Luxury Black Clothing" category="Best-selling luxury clothing" price="$1050" />
-        <ProductItem image="product image 3.jpg" title="Luxury Blue Dress" category="Best-selling luxury clothing" price="$5000" />
-        <ProductItem image="product image 4.jpg" title="Luxury Brown Dress" category="Best-selling luxury clothing" price="$2500" />
-        <ProductItem image="product image 5.jpg" title="Special Brown Dress" category="Best-selling luxury clothing" price="$5200" />
-        <ProductItem image="product image 6.jpg" title="Special Luxury Dress" category="Best-selling luxury clothing" price="$2000" />
-        </div>
-  )
-}
-export default ProductGrid
+      {products && products.map((product: Product) => (
+        <ProductItem
+          key={nanoid()}
+          id={product.id}
+          image={product.image}
+          title={product.title}
+          category={product.category}
+          price={product.price}
+        />
+      ))}
+    </div>
+  );
+};
+export default ProductGrid;
