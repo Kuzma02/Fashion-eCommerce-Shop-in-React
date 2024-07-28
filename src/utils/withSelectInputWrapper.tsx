@@ -1,19 +1,14 @@
-import { useState } from "react";
+import React from "react";
+
+interface WithSelectInputWrapperProps {
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  [key: string]: any;
+}
 
 const withSelectInputWrapper = (Component: any) => {
-  return function (props: any) {
-    const [selectValue, setSelectValue] = useState<string>(
-      props.selectList[0].value
-    );
-    return (
-      <Component
-        value={selectValue}
-        {...props}
-        onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-          setSelectValue((prev: string) => e.target.value)
-        }
-      />
-    );
+  return function (props: WithSelectInputWrapperProps) {
+    return <Component {...props} />;
   };
 };
 export default withSelectInputWrapper;

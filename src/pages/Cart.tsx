@@ -9,45 +9,13 @@ import { Button } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { Link } from "react-router-dom";
 import { removeProductFromTheCart } from "../features/cart/cartSlice";
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    price: "$32.00",
-    color: "Sienna",
-    inStock: true,
-    size: "Large",
-    imageSrc: "/src/assets/product image 1.jpg",
-    imageAlt: "Front of men's Basic Tee in sienna.",
-  },
-  {
-    id: 2,
-    name: "Basic Tee",
-    href: "#",
-    price: "$32.00",
-    color: "Black",
-    inStock: false,
-    leadTime: "3–4 weeks",
-    size: "Large",
-    imageSrc: "/src/assets/product image 2.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-  },
-  {
-    id: 3,
-    name: "Nomad Tumbler",
-    href: "#",
-    price: "$35.00",
-    color: "White",
-    inStock: true,
-    imageSrc: "/src/assets/product image 3.jpg",
-    imageAlt: "Insulated bottle with white base and black snap lid.",
-  },
-];
 
 const Cart = () => {
   const { productsInCart } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
+
+  console.log(productsInCart);
+  
   return (
     <div className="bg-white mx-auto max-w-screen-2xl px-5 max-[400px]:px-3">
       <div className="pb-24 pt-16">
@@ -80,7 +48,7 @@ const Cart = () => {
                         <div className="flex justify-between">
                           <h3 className="text-sm">
                             <Link
-                              to={`/products${product.id}`}
+                              to={`/product/${product.id}`}
                               className="font-medium text-gray-700 hover:text-gray-800"
                             >
                               {product.title}

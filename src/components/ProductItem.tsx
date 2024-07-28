@@ -45,13 +45,13 @@ const ProductItem = ({
           onClick={() =>
             dispatch(
               addProductToTheCart({
-                id,
+                id: id + "xlblack",
                 image,
                 title,
                 category,
                 price,
                 quantity: 1,
-                size: "XL",
+                size: "xl",
                 color: "black",
               })
             )

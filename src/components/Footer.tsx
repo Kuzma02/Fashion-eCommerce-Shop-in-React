@@ -18,7 +18,7 @@ const Footer = () => {
             <h3 className="text-2xl font-bold max-sm:text-xl">Our Brand</h3>
             <p className="text-lg max-sm:text-base">The Company</p>
             <p className="text-lg max-sm:text-base">The Excellence</p>
-            <p className="text-lg max-sm:text-base">Internation Awards</p>
+            <p className="text-lg max-sm:text-base">International Awards</p>
             <p className="text-lg max-sm:text-base">Our Story</p>
           </div>
 

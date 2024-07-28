@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
           if (product.id === action.payload.id) {
             return {
               ...product,
-              quantity: product.quantity + 1,
+              quantity: product.quantity + action.payload.quantity,
             };
           }
           return product;

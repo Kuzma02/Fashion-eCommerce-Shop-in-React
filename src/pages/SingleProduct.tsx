@@ -1,15 +1,30 @@
 import { HiChevronDown } from "react-icons/hi2";
-import { Button, ProductItem, StandardSelectInput } from "../components";
+import {
+  Button,
+  ProductItem,
+  QuantityInput,
+  StandardSelectInput,
+} from "../components";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import withSelectInputWrapper from "../utils/withSelectInputWrapper";
+import withNumberInputWrapper from "../utils/withNumberInputWrapper";
+import { addProductToTheCart } from "../features/cart/cartSlice";
+import { useAppDispatch } from "../hooks";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [singleProduct, setSingleProduct] = useState<Product | null>(null);
+  // defining default values for input fields
+  const [size, setSize] = useState<string>("xs");
+  const [color, setColor] = useState<string>("black");
+  const [quantity, setQuantity] = useState<number>(1);
   const params = useParams<{ id: string }>();
+  const dispatch = useAppDispatch();
 
+  // defining HOC instances
   const SelectInputUpgrade = withSelectInputWrapper(StandardSelectInput);
+  const QuantityInputUpgrade = withNumberInputWrapper(QuantityInput);
 
   useEffect(() => {
     const fetchSingleProduct = async () => {
@@ -28,6 +43,23 @@ const SingleProduct = () => {
     fetchSingleProduct();
     fetchProducts();
   }, [params.id]);
+
+  const handleAddToCart = () => {
+    if (singleProduct) {
+      dispatch(
+        addProductToTheCart({
+          id: singleProduct.id + size + color,
+          image: singleProduct.image,
+          title: singleProduct.title,
+          category: singleProduct.category,
+          price: singleProduct.price,
+          quantity,
+          size,
+          color,
+        })
+      );
+    }
+  };
 
   return (
     <div className="max-w-screen-2xl mx-auto px-5 max-[400px]:px-3">
@@ -55,27 +87,42 @@ const SingleProduct = () => {
           <div className="flex flex-col gap-2">
             <SelectInputUpgrade
               selectList={[
-                { id: 1, value: "XS" },
-                { id: 2, value: "SM" },
-                { id: 3, value: "M" },
-                { id: 4, value: "LG" },
-                { id: 5, value: "XL" },
-                { id: 6, value: "2XL" },
+                { id: "xs", value: "XS" },
+                { id: "sm", value: "SM" },
+                { id: "m", value: "M" },
+                { id: "lg", value: "LG" },
+                { id: "xl", value: "XL" },
+                { id: "2xl", value: "2XL" },
               ]}
+              value={size}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setSize((prev: string) => e.target.value)
+              }
             />
             <SelectInputUpgrade
               selectList={[
-                { id: 1, value: "BLACK" },
-                { id: 2, value: "RED" },
-                { id: 3, value: "BLUE" },
-                { id: 4, value: "WHITE" },
-                { id: 5, value: "ROSE" },
-                { id: 6, value: "GREEN" },
+                { id: "black", value: "BLACK" },
+                { id: "red", value: "RED" },
+                { id: "blue", value: "BLUE" },
+                { id: "white", value: "WHITE" },
+                { id: "rose", value: "ROSE" },
+                { id: "green", value: "GREEN" },
               ]}
+              value={color}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setColor((prev: string) => e.target.value)
+              }
+            />
+
+            <QuantityInputUpgrade
+              value={quantity}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setQuantity((prev: number) => parseInt(e.target.value))
+              }
             />
           </div>
           <div className="flex flex-col gap-3">
-            <Button mode="brown" text="Add to cart" />
+            <Button mode="brown" text="Add to cart" onClick={handleAddToCart} />
             <p className="text-secondaryBrown text-sm text-right">
               Delivery estimated on the Friday, July 26
             </p>
