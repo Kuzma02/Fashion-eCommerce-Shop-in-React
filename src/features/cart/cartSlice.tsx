@@ -14,11 +14,35 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProductToTheCart: (state, action: PayloadAction<ProductInCart>) => {
-      state.productsInCart.push(action.payload);
+      const product = state.productsInCart.find(
+        (product) => product.id === action.payload.id
+      );
+      if (product) {
+        state.productsInCart = state.productsInCart.map((product) => {
+          if (product.id === action.payload.id) {
+            return {
+              ...product,
+              quantity: product.quantity + 1,
+            };
+          }
+          return product;
+        });
+      } else {
+        state.productsInCart.push(action.payload);
+      }
+    },
+    removeProductFromTheCart: (
+      state,
+      action: PayloadAction<{ id: string }>
+    ) => {
+      state.productsInCart = state.productsInCart.filter(
+        (product) => product.id !== action.payload.id
+      );
     },
   },
 });
 
-export const { addProductToTheCart } = cartSlice.actions;
+export const { addProductToTheCart, removeProductFromTheCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

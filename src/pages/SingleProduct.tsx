@@ -2,11 +2,14 @@ import { HiChevronDown } from "react-icons/hi2";
 import { Button, ProductItem, StandardSelectInput } from "../components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import withSelectInputWrapper from "../utils/withSelectInputWrapper";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [singleProduct, setSingleProduct] = useState<Product | null>(null);
   const params = useParams<{ id: string }>();
+
+  const SelectInputUpgrade = withSelectInputWrapper(StandardSelectInput);
 
   useEffect(() => {
     const fetchSingleProduct = async () => {
@@ -30,8 +33,14 @@ const SingleProduct = () => {
     <div className="max-w-screen-2xl mx-auto px-5 max-[400px]:px-3">
       <div className="grid grid-cols-3 gap-x-8 max-lg:grid-cols-1">
         <div className="lg:col-span-2">
-          <img src={`/src/assets/${singleProduct?.image}`} alt={singleProduct?.title} />
-          <img src={`/src/assets/${singleProduct?.image}`} alt={singleProduct?.title} />
+          <img
+            src={`/src/assets/${singleProduct?.image}`}
+            alt={singleProduct?.title}
+          />
+          <img
+            src={`/src/assets/${singleProduct?.image}`}
+            alt={singleProduct?.title}
+          />
         </div>
         <div className="w-full flex flex-col gap-5 mt-9">
           <div className="flex flex-col gap-2">
@@ -44,8 +53,26 @@ const SingleProduct = () => {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <StandardSelectInput />
-            <StandardSelectInput />
+            <SelectInputUpgrade
+              selectList={[
+                { id: 1, value: "XS" },
+                { id: 2, value: "SM" },
+                { id: 3, value: "M" },
+                { id: 4, value: "LG" },
+                { id: 5, value: "XL" },
+                { id: 6, value: "2XL" },
+              ]}
+            />
+            <SelectInputUpgrade
+              selectList={[
+                { id: 1, value: "BLACK" },
+                { id: 2, value: "RED" },
+                { id: 3, value: "BLUE" },
+                { id: 4, value: "WHITE" },
+                { id: 5, value: "ROSE" },
+                { id: 6, value: "GREEN" },
+              ]}
+            />
           </div>
           <div className="flex flex-col gap-3">
             <Button mode="brown" text="Add to cart" />
