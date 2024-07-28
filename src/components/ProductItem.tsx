@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { useAppDispatch } from "../hooks";
+import { addProductToTheCart } from "../features/cart/cartSlice";
 
 const ProductItem = ({
   id,
@@ -14,6 +16,8 @@ const ProductItem = ({
   category: string;
   price: string;
 }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className="w-[400px] flex flex-col gap-2 justify-center max-md:w-[300px]">
       <Link
@@ -35,7 +39,24 @@ const ProductItem = ({
         {price}
       </p>
       <div className="w-full flex flex-col gap-1">
-        <Button mode="brown" text="Add to cart" />
+        <Button
+          mode="brown"
+          text="Add to cart"
+          onClick={() =>
+            dispatch(
+              addProductToTheCart({
+                id,
+                image,
+                title,
+                category,
+                price,
+                quantity: 1,
+                size: "XL",
+                color: "black",
+              })
+            )
+          }
+        />
         <Button mode="white" text="Learn more" />
       </div>
     </div>

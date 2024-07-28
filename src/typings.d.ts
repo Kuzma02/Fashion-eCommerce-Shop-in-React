@@ -5,3 +5,9 @@ interface Product {
     category: string;
     price: string;
   }
+
+  interface ProductInCart extends Product {
+    quantity: number;
+    size: string;
+    color: string;
+  }

@@ -1,6 +1,8 @@
 // import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import { HiCheck as CheckIcon, HiClock as ClockIcon, HiXMark as XMarkIcon, HiQuestionMarkCircle as QuestionMarkCircleIcon } from 'react-icons/hi2'
 import { Button } from '../components'
+import { useAppSelector } from '../hooks'
+import { Link } from 'react-router-dom'
 const products = [
   {
     id: 1,
@@ -38,6 +40,7 @@ const products = [
 ]
 
 const Cart = () => {
+  const {productsInCart} = useAppSelector((state) => state.cart);
   return (
     <div className="bg-white mx-auto max-w-screen-2xl px-5 max-[400px]:px-3">
     <div className="pb-24 pt-16">
@@ -49,12 +52,12 @@ const Cart = () => {
           </h2>
 
           <ul role="list" className="divide-y divide-gray-200 border-b border-t border-gray-200">
-            {products.map((product, productIdx) => (
+            {productsInCart.map((product, productIdx) => (
               <li key={product.id} className="flex py-6 sm:py-10">
                 <div className="flex-shrink-0">
                   <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
+                    src={`/src/assets/${product.image}`}
+                    alt={product.title}
                     className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
                   />
                 </div>
@@ -64,9 +67,9 @@ const Cart = () => {
                     <div>
                       <div className="flex justify-between">
                         <h3 className="text-sm">
-                          <a href={product.href} className="font-medium text-gray-700 hover:text-gray-800">
-                            {product.name}
-                          </a>
+                          <Link to={`/products${product.id}`} className="font-medium text-gray-700 hover:text-gray-800">
+                            {product.title}
+                          </Link>
                         </h3>
                       </div>
                       <div className="mt-1 flex text-sm">
@@ -80,7 +83,7 @@ const Cart = () => {
 
                     <div className="mt-4 sm:mt-0 sm:pr-9">
                       <label htmlFor={`quantity-${productIdx}`} className="sr-only">
-                        Quantity, {product.name}
+                        Quantity, {product.title}
                       </label>
                       <select
                         id={`quantity-${productIdx}`}
@@ -107,13 +110,13 @@ const Cart = () => {
                   </div>
 
                   <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                    {product.inStock ? (
+                    {true ? (
                       <CheckIcon className="h-5 w-5 flex-shrink-0 text-green-500" aria-hidden="true" />
                     ) : (
                       <ClockIcon className="h-5 w-5 flex-shrink-0 text-gray-300" aria-hidden="true" />
                     )}
 
-                    <span>{product.inStock ? 'In stock' : `Ships in ${product.leadTime}`}</span>
+                    <span>{true ? 'In stock' : `Ships in 2 days`}</span>
                   </p>
                 </div>
               </li>
