@@ -8,6 +8,10 @@ import {
   Shop,
   SingleProduct,
 } from "./pages";
+import { searchAction } from "./pages/Search";
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -36,6 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "search",
+        action: searchAction,
         element: <Search />,
       }
     ],
