@@ -1,12 +1,14 @@
 import HomeCollectionFilter from "./HomeCollectionFilter";
 import ProductGrid from "./ProductGrid";
+import ProductGridWrapper from "./ProductGridWrapper";
 
 const HomeCollectionSection = () => {
   return (
     <div>
       <HomeCollectionFilter />
-      <ProductGrid />
-      
+      <ProductGridWrapper>
+        <ProductGrid />
+      </ProductGridWrapper>
     </div>
   );
 };

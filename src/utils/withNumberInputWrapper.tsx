@@ -6,9 +6,9 @@ interface WithNumberInputWrapperProps {
   [key: string]: any;
 }
 
-const withNumberInputWrapper = (Component: any) => {
+const WithNumberInputWrapper = (Component: any) => {
   return function (props: WithNumberInputWrapperProps) {
     return <Component {...props} />;
   };
 };
-export default withNumberInputWrapper;
+export default WithNumberInputWrapper;

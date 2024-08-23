@@ -1,23 +1,14 @@
-import { useState } from "react";
 import {
   Button,
   ProductGrid,
-  ShopFilterAndSort,
+  ProductGridWrapper,
   ShowingPagination,
 } from "../components";
-import { Form, redirect, useActionData } from "react-router-dom";
-import axios from "axios";
-
-export const searchAction = async ({ request }) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData);
-  // const response = await axios.post("", data);
-  console.log(data);
-
-  return redirect("/search");
-};
+import { Form, useSearchParams } from "react-router-dom";
 
 const Search = () => {
+  const [searchParams] = useSearchParams();
+
   return (
     <div className="max-w-screen-2xl mx-auto">
       <Form
@@ -28,14 +19,16 @@ const Search = () => {
           type="text"
           placeholder="Search products"
           className="border border-gray-300 focus:border-gray-400 h-12 text-xl px-3 w-full outline-none max-sm:text-lg"
-          name="search-input"
+          name="searchInput"
         />
         <div className="w-52 max-sm:w-40">
           <Button mode="brown" text="Search" type="submit" />
         </div>
       </Form>
 
-      <ProductGrid />
+      <ProductGridWrapper searchQuery={searchParams.get("query")!}>
+        <ProductGrid />
+      </ProductGridWrapper>
 
       <ShowingPagination />
     </div>

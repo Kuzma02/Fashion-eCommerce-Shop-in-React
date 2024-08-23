@@ -7,10 +7,10 @@ import {
 } from "../components";
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import withSelectInputWrapper from "../utils/withSelectInputWrapper";
-import withNumberInputWrapper from "../utils/withNumberInputWrapper";
 import { addProductToTheCart } from "../features/cart/cartSlice";
 import { useAppDispatch } from "../hooks";
+import WithSelectInputWrapper from "../utils/WithSelectInputWrapper";
+import WithNumberInputWrapper from "../utils/WithNumberInputWrapper";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,8 +23,8 @@ const SingleProduct = () => {
   const dispatch = useAppDispatch();
 
   // defining HOC instances
-  const SelectInputUpgrade = withSelectInputWrapper(StandardSelectInput);
-  const QuantityInputUpgrade = withNumberInputWrapper(QuantityInput);
+  const SelectInputUpgrade = WithSelectInputWrapper(StandardSelectInput);
+  const QuantityInputUpgrade = WithNumberInputWrapper(QuantityInput);
 
   useEffect(() => {
     const fetchSingleProduct = async () => {

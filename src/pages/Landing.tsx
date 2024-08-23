@@ -1,4 +1,4 @@
-import { Banner, Footer, HomeCollectionSection } from "../components";
+import { Banner, HomeCollectionSection } from "../components";
 
 const Landing = () => {
   return (

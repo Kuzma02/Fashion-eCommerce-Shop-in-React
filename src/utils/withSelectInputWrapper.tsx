@@ -1,4 +1,3 @@
-import React from "react";
 
 interface WithSelectInputWrapperProps {
   value?: string;
@@ -6,9 +5,9 @@ interface WithSelectInputWrapperProps {
   [key: string]: any;
 }
 
-const withSelectInputWrapper = (Component: any) => {
+const WithSelectInputWrapper = (Component: any) => {
   return function (props: WithSelectInputWrapperProps) {
     return <Component {...props} />;
   };
 };
-export default withSelectInputWrapper;
+export default WithSelectInputWrapper;
