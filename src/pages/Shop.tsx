@@ -1,11 +1,19 @@
-import { ProductGrid, ShopBanner, ShopFilterAndSort, ShowingPagination } from "../components";
+import {
+  ProductGrid,
+  ProductGridWrapper,
+  ShopBanner,
+  ShopFilterAndSort,
+  ShowingPagination,
+} from "../components";
 
 const Shop = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto pt-10">
       <ShopBanner />
       <ShopFilterAndSort />
-      <ProductGrid />
+      <ProductGridWrapper>
+        <ProductGrid />
+      </ProductGridWrapper>
       <ShowingPagination />
     </div>
   );

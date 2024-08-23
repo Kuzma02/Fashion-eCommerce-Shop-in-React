@@ -96,7 +96,7 @@ const SingleProduct = () => {
               ]}
               value={size}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setSize((prev: string) => e.target.value)
+                setSize(() => e.target.value)
               }
             />
             <SelectInputUpgrade
@@ -110,21 +110,21 @@ const SingleProduct = () => {
               ]}
               value={color}
               onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setColor((prev: string) => e.target.value)
+                setColor(() => e.target.value)
               }
             />
 
             <QuantityInputUpgrade
               value={quantity}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setQuantity((prev: number) => parseInt(e.target.value))
+                setQuantity(() => parseInt(e.target.value))
               }
             />
           </div>
           <div className="flex flex-col gap-3">
             <Button mode="brown" text="Add to cart" onClick={handleAddToCart} />
             <p className="text-secondaryBrown text-sm text-right">
-              Delivery estimated on the Friday, July 26
+              Delivery estimated on the Friday, July 26
             </p>
           </div>
           <div>
