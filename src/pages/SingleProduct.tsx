@@ -9,8 +9,8 @@ import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { addProductToTheCart } from "../features/cart/cartSlice";
 import { useAppDispatch } from "../hooks";
-import WithSelectInputWrapper from "../utils/WithSelectInputWrapper";
-import WithNumberInputWrapper from "../utils/WithNumberInputWrapper";
+import WithSelectInputWrapper from "../utils/withSelectInputWrapper";
+import WithNumberInputWrapper from "../utils/withNumberInputWrapper";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
