@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Luxury Dress",
       "image": "product image 1.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "special-edition",
       "price": 3500,
       "popularity": 5
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "title": "Luxury Black Clothing",
       "image": "product image 2.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "luxury-collection",
       "price": 1050,
       "popularity": 4
     },
@@ -20,7 +20,7 @@
       "id": "3",
       "title": "Luxury Blue Dress",
       "image": "product image 3.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "summer-edition",
       "price": 5000,
       "popularity": 3
     },
@@ -28,7 +28,7 @@
       "id": "4",
       "title": "Special Brown Dress",
       "image": "product image 4.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "unique-collection",
       "price": 2500,
       "popularity": 2
     },
@@ -36,7 +36,7 @@
       "id": "5",
       "title": "Special Luxury Dress",
       "image": "product image 5.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "unique-collection",
       "price": 5200,
       "popularity": 1
     },
@@ -44,7 +44,7 @@
       "id": "5",
       "title": "Super Luxury Dress",
       "image": "product image 6.jpg",
-      "category": "Best-selling luxury clothing",
+      "category": "luxury-collection",
       "price": 8500,
       "popularity": 20
     }

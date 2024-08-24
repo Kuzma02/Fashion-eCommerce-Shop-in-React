@@ -9,12 +9,14 @@ const ProductItem = ({
   title,
   category,
   price,
+  popularity
 }: {
   id: string;
   image: string;
   title: string;
   category: string;
-  price: string;
+  price: number;
+  popularity: number;
 }) => {
   const dispatch = useAppDispatch();
 
@@ -53,6 +55,7 @@ const ProductItem = ({
                 quantity: 1,
                 size: "xl",
                 color: "black",
+                popularity
               })
             )
           }

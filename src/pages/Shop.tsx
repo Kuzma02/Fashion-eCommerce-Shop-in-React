@@ -1,17 +1,23 @@
+import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import {
-  ProductGrid,
-  ProductGridWrapper,
   ShopBanner,
-  ShopFilterAndSort,
   ShopPageContent,
-  ShowingPagination,
 } from "../components";
 
+export const shopCategoryLoader = async ({ params }: LoaderFunctionArgs) => {
+  const { category } = params;
+
+  return category;
+};
+
 const Shop = () => {
+  const category = useLoaderData() as string;
+  
+  
   return (
     <div className="max-w-screen-2xl mx-auto pt-10">
-      <ShopBanner />
-      <ShopPageContent />
+      <ShopBanner category={category} />
+      <ShopPageContent category={category} />
     </div>
   );
 };

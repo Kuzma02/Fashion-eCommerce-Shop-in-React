@@ -4,10 +4,12 @@ import customFetch from "../axios/custom";
 const ProductGridWrapper = ({
   searchQuery,
   sortCriteria,
+  category,
   children,
 }: {
   searchQuery?: string;
   sortCriteria?: string;
+  category?: string;
   children:
     | ReactElement<{ products: Product[] }>
     | ReactElement<{ products: Product[] }>[];
@@ -26,6 +28,15 @@ const ProductGridWrapper = ({
       let searchedProducts = allProducts.filter((product: Product) =>
         product.title.toLowerCase().includes(query.toLowerCase())
       );
+
+      if(category){
+        searchedProducts = searchedProducts.filter((product: Product) => {
+          console.log(product.category, category);
+          return product.category === category;
+        });
+        console.log(searchedProducts);
+
+      }
 
       // Sort the products based on the sortCriteria
       if (sort === "price-asc") {

@@ -3,7 +3,6 @@ import ProductItem from "./ProductItem";
 import { nanoid } from "nanoid";
 
 const ProductGrid = ({ products }: { products?: Product[] }) => {
-  console.table(products);
   return (
     <div className="max-w-screen-2xl flex flex-wrap justify-between items-center gap-y-8 mx-auto mt-12 max-xl:justify-start max-xl:gap-5 px-5 max-[400px]:px-3">
       {products &&
@@ -15,6 +14,7 @@ const ProductGrid = ({ products }: { products?: Product[] }) => {
             title={product.title}
             category={product.category}
             price={product.price}
+            popularity={product.popularity}
           />
         ))}
     </div>
