@@ -14,3 +14,4 @@ export { default as StandardSelectInput } from "./StandardSelectInput";
 export { default as QuantityInput } from "./QuantityInput";
 export { default as ProductGridWrapper } from "./ProductGridWrapper";
 export { default as ShopPageContent } from "./ShopPageContent";
+export { default as CategoryItem } from "./CategoryItem";

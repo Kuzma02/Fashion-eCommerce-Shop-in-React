@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { HiCheckCircle, HiTrash as TrashIcon } from "react-icons/hi2";
+import { HiTrash as TrashIcon } from "react-icons/hi2";
 import { Button } from "../components";
 
 const products = [
@@ -16,30 +15,14 @@ const products = [
   },
   // More products...
 ];
-
-const deliveryMethods = [
-  {
-    id: 1,
-    title: "Standard",
-    turnaround: "4–10 business days",
-    price: "$5.00",
-  },
-  { id: 2, title: "Express", turnaround: "2–5 business days", price: "$16.00" },
-];
 const paymentMethods = [
   { id: "credit-card", title: "Credit card" },
   { id: "paypal", title: "PayPal" },
   { id: "etransfer", title: "eTransfer" },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const Checkout = () => {
-  const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(
-    deliveryMethods[0]
-  );
 
   return (
     <div className="mx-auto max-w-screen-2xl">
