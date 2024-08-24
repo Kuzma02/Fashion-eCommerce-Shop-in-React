@@ -3,33 +3,53 @@ import customFetch from "../axios/custom";
 
 const ProductGridWrapper = ({
   searchQuery,
+  sortCriteria,
   children,
 }: {
   searchQuery?: string;
-  children: ReactElement<{ products: Product[] }> | ReactElement<{ products: Product[] }>[];
+  sortCriteria?: string;
+  children:
+    | ReactElement<{ products: Product[] }>
+    | ReactElement<{ products: Product[] }>[];
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
+
   // Memoize the function to prevent unnecessary re-renders
-  // getSearchhProducts will be called only when searchQuery changes
-  const getSearchedProducts = useCallback(async (query: string) => {
-    let url;
-    if (query && query.length > 0) {
-      url = `/products?query=${query}`;
-    } else {
-      query = "";
-      url = `/products`;
-    }
-    const response = await customFetch(url);
-    const allProducts = await response.data;
-    const searchedProducts = allProducts.filter((product: Product) =>
-      product.title.toLowerCase().includes(query.toLowerCase())
-    );
-    setProducts(searchedProducts);
-  }, []);
+  // getSearchedProducts will be called only when searchQuery or sortCriteria changes
+  const getSearchedProducts = useCallback(
+    async (query: string, sort: string) => {
+      if (!query || query.length === 0) {
+        query = "";
+      }
+      const response = await customFetch("/products");
+      const allProducts = await response.data;
+      let searchedProducts = allProducts.filter((product: Product) =>
+        product.title.toLowerCase().includes(query.toLowerCase())
+      );
+
+      // Sort the products based on the sortCriteria
+      if (sort === "price-asc") {
+        searchedProducts = searchedProducts.sort(
+          (a: Product, b: Product) => a.price - b.price
+        );
+      } else if (sort === "price-desc") {
+        searchedProducts = searchedProducts.sort(
+          (a: Product, b: Product) => b.price - a.price
+        );
+      } else if (sort === "popularity") {
+        searchedProducts = searchedProducts.sort(
+          (a: Product, b: Product) => b.popularity - a.popularity
+        );
+      }
+
+      setProducts(searchedProducts);
+    },
+    []
+  );
 
   useEffect(() => {
-    getSearchedProducts(searchQuery || "");
-  }, [searchQuery]);
+    getSearchedProducts(searchQuery || "", sortCriteria || "");
+  }, [searchQuery, sortCriteria]);
 
   // Clone the children and pass the products as props to the children
   // This will cause the children to re-render with the new products

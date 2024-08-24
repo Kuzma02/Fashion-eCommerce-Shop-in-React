@@ -3,7 +3,8 @@ interface Product {
     title: string;
     image: string;
     category: string;
-    price: string;
+    price: number;
+    popularity: number;
   }
 
   interface ProductInCart extends Product {

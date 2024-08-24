@@ -3,6 +3,7 @@ import {
   ProductGridWrapper,
   ShopBanner,
   ShopFilterAndSort,
+  ShopPageContent,
   ShowingPagination,
 } from "../components";
 
@@ -10,11 +11,7 @@ const Shop = () => {
   return (
     <div className="max-w-screen-2xl mx-auto pt-10">
       <ShopBanner />
-      <ShopFilterAndSort />
-      <ProductGridWrapper>
-        <ProductGrid />
-      </ProductGridWrapper>
-      <ShowingPagination />
+      <ShopPageContent />
     </div>
   );
 };
