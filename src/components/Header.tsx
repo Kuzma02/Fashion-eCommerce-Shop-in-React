@@ -18,7 +18,9 @@ const Header = () => {
         <Link to="/search">
           <HiOutlineMagnifyingGlass className="text-2xl max-sm:text-xl" />
         </Link>
-        <HiOutlineUser className="text-2xl max-sm:text-xl" />
+        <Link to="/login">
+          <HiOutlineUser className="text-2xl max-sm:text-xl" />
+        </Link>
         <Link to="/cart">
           <HiOutlineShoppingBag className="text-2xl max-sm:text-xl" />
         </Link>

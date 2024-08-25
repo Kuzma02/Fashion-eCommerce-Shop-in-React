@@ -4,6 +4,7 @@ import {
   Checkout,
   HomeLayout,
   Landing,
+  Login,
   Search,
   Shop,
   SingleProduct,
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
         action: searchAction,
         element: <Search />,
       },
+      {
+        path: "login",
+        element: <Login />,
+      }
     ],
   },
 ]);
