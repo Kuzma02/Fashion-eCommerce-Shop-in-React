@@ -1,6 +1,5 @@
 import {
   HiCheck as CheckIcon,
-  HiClock as ClockIcon,
   HiXMark as XMarkIcon,
   HiQuestionMarkCircle as QuestionMarkCircleIcon,
 } from "react-icons/hi2";
@@ -38,7 +37,7 @@ const Cart = () => {
                     <img
                       src={`/src/assets/${product.image}`}
                       alt={product.title}
-                      className="h-24 w-24 rounded-md object-cover object-center sm:h-48 sm:w-48"
+                      className="h-24 w-24 object-cover object-center sm:h-48 sm:w-48"
                     />
                   </div>
 
@@ -126,7 +125,7 @@ const Cart = () => {
           {/* Order summary */}
           <section
             aria-labelledby="summary-heading"
-            className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
+            className="mt-16 bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8"
           >
             <h2
               id="summary-heading"
