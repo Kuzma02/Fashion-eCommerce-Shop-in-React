@@ -9,7 +9,8 @@ const ProductItem = ({
   title,
   category,
   price,
-  popularity
+  popularity,
+  stock
 }: {
   id: string;
   image: string;
@@ -17,6 +18,7 @@ const ProductItem = ({
   category: string;
   price: number;
   popularity: number;
+  stock: number
 }) => {
   const dispatch = useAppDispatch();
 
@@ -55,7 +57,8 @@ const ProductItem = ({
                 quantity: 1,
                 size: "xl",
                 color: "black",
-                popularity
+                popularity,
+                stock
               })
             )
           }

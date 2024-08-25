@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type CartState = {
   productsInCart: ProductInCart[];
+  subtotal: number;
 };
 
 const initialState: CartState = {
   productsInCart: [],
+  subtotal: 0,
 };
 
 export const cartSlice = createSlice({
@@ -30,6 +32,7 @@ export const cartSlice = createSlice({
       } else {
         state.productsInCart.push(action.payload);
       }
+      cartSlice.caseReducers.calculateTotalPrice(state);
     },
     removeProductFromTheCart: (
       state,
@@ -38,11 +41,37 @@ export const cartSlice = createSlice({
       state.productsInCart = state.productsInCart.filter(
         (product) => product.id !== action.payload.id
       );
+      cartSlice.caseReducers.calculateTotalPrice(state);
+    },
+    updateProductQuantity: (
+      state,
+      action: PayloadAction<{ id: string; quantity: number }>
+    ) => {
+      state.productsInCart = state.productsInCart.map((product) => {
+        if (product.id === action.payload.id) {
+          return {
+            ...product,
+            quantity: action.payload.quantity,
+          };
+        }
+        return product;
+      });
+      cartSlice.caseReducers.calculateTotalPrice(state);
+    },
+    calculateTotalPrice: (state) => {
+      state.subtotal = state.productsInCart.reduce(
+        (acc, product) => acc + product.price * product.quantity,
+        0
+      );
     },
   },
 });
 
-export const { addProductToTheCart, removeProductFromTheCart } =
-  cartSlice.actions;
+export const {
+  addProductToTheCart,
+  removeProductFromTheCart,
+  updateProductQuantity,
+  calculateTotalPrice,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

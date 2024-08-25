@@ -5,6 +5,7 @@ interface Product {
     category: string;
     price: number;
     popularity: number;
+    stock: number;
   }
 
   interface ProductInCart extends Product {
@@ -12,4 +13,5 @@ interface Product {
     quantity: number;
     size: string;
     color: string;
+    stock: number;
   }

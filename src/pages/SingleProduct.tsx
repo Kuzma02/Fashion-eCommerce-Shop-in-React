@@ -56,6 +56,8 @@ const SingleProduct = () => {
           quantity,
           size,
           color,
+          popularity: singleProduct.popularity,
+          stock: singleProduct.stock,
         })
       );
     }
@@ -161,6 +163,8 @@ const SingleProduct = () => {
               title={product?.title}
               category={product?.category}
               price={product?.price}
+              popularity={product?.popularity}
+              stock={product?.stock}
             />
           ))}
         </div>

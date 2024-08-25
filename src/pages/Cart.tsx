@@ -1,4 +1,3 @@
-// import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import {
   HiCheck as CheckIcon,
   HiClock as ClockIcon,
@@ -8,14 +7,15 @@ import {
 import { Button } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { Link } from "react-router-dom";
-import { removeProductFromTheCart } from "../features/cart/cartSlice";
+import {
+  removeProductFromTheCart,
+  updateProductQuantity,
+} from "../features/cart/cartSlice";
 
 const Cart = () => {
-  const { productsInCart } = useAppSelector((state) => state.cart);
+  const { productsInCart, subtotal } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
-  console.log(productsInCart);
-  
   return (
     <div className="bg-white mx-auto max-w-screen-2xl px-5 max-[400px]:px-3">
       <div className="pb-24 pt-16">
@@ -64,7 +64,7 @@ const Cart = () => {
                           ) : null}
                         </div>
                         <p className="mt-1 text-sm font-medium text-gray-900">
-                          {product.price}
+                          ${product.price}
                         </p>
                       </div>
 
@@ -75,6 +75,14 @@ const Cart = () => {
                           id="quantity"
                           className="w-16 h-7 indent-1 bg-white border"
                           value={product?.quantity}
+                          onChange={(e) => {
+                            dispatch(
+                              updateProductQuantity({
+                                id: product?.id,
+                                quantity: parseInt(e.target.value),
+                              })
+                            );
+                          }}
                         />
 
                         <div className="absolute right-0 top-0">
@@ -95,19 +103,19 @@ const Cart = () => {
                     </div>
 
                     <p className="mt-4 flex space-x-2 text-sm text-gray-700">
-                      {true ? (
+                      {product?.stock ? (
                         <CheckIcon
                           className="h-5 w-5 flex-shrink-0 text-green-500"
                           aria-hidden="true"
                         />
                       ) : (
-                        <ClockIcon
-                          className="h-5 w-5 flex-shrink-0 text-gray-300"
+                        <XMarkIcon
+                          className="h-5 w-5 flex-shrink-0 text-red-600"
                           aria-hidden="true"
                         />
                       )}
 
-                      <span>{true ? "In stock" : `Ships in 2 days`}</span>
+                      <span>{product?.stock ? "In stock" : `Out of stock`}</span>
                     </p>
                   </div>
                 </li>
@@ -130,7 +138,9 @@ const Cart = () => {
             <dl className="mt-6 space-y-4">
               <div className="flex items-center justify-between">
                 <dt className="text-sm text-gray-600">Subtotal</dt>
-                <dd className="text-sm font-medium text-gray-900">$99.00</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${subtotal}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex items-center text-sm text-gray-600">
@@ -148,7 +158,9 @@ const Cart = () => {
                     />
                   </a>
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$5.00</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${subtotal === 0 ? 0 : 5.0}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="flex text-sm text-gray-600">
@@ -166,13 +178,17 @@ const Cart = () => {
                     />
                   </a>
                 </dt>
-                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
+                <dd className="text-sm font-medium text-gray-900">
+                  ${subtotal / 5}
+                </dd>
               </div>
               <div className="flex items-center justify-between border-t border-gray-200 pt-4">
                 <dt className="text-base font-medium text-gray-900">
                   Order total
                 </dt>
-                <dd className="text-base font-medium text-gray-900">$112.32</dd>
+                <dd className="text-base font-medium text-gray-900">
+                  ${subtotal === 0 ? 0 : subtotal + subtotal / 5 + 5}
+                </dd>
               </div>
             </dl>
 

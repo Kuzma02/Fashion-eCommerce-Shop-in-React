@@ -15,6 +15,7 @@ const ProductGrid = ({ products }: { products?: Product[] }) => {
             category={product.category}
             price={product.price}
             popularity={product.popularity}
+            stock={product.stock}
           />
         ))}
     </div>
