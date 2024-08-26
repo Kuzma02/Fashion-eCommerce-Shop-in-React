@@ -27,3 +27,18 @@ body {
       no-repeat;
 }
 
+/* Add these styles to your CSS file */
+.sidebar-enter {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar-enter-active {
+  transform: translateX(0);
+}
+.sidebar-exit {
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.sidebar-exit-active {
+  transform: translateX(-100%);
+}

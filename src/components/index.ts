@@ -16,3 +16,5 @@ export { default as ProductGridWrapper } from "./ProductGridWrapper";
 export { default as ShopPageContent } from "./ShopPageContent";
 export { default as CategoryItem } from "./CategoryItem";
 export { default as CategoriesSection } from "./CategoriesSection";
+export { default as SidebarMenu } from "./SidebarMenu";
+export { default as Dropdown } from "./Dropdown";

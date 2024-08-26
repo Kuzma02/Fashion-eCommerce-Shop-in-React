@@ -1,6 +1,7 @@
 import { HiChevronDown } from "react-icons/hi2";
 import {
   Button,
+  Dropdown,
   ProductItem,
   QuantityInput,
   StandardSelectInput,
@@ -11,6 +12,7 @@ import { addProductToTheCart } from "../features/cart/cartSlice";
 import { useAppDispatch } from "../hooks";
 import WithSelectInputWrapper from "../utils/withSelectInputWrapper";
 import WithNumberInputWrapper from "../utils/withNumberInputWrapper";
+import { formatCategoryName } from "../utils/formatCategoryName";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -81,7 +83,7 @@ const SingleProduct = () => {
             <h1 className="text-4xl">{singleProduct?.title}</h1>
             <div className="flex justify-between items-center">
               <p className="text-base text-secondaryBrown">
-                Limited Time Collection
+                {formatCategoryName(singleProduct?.category || "")}
               </p>
               <p className="text-base font-bold">$3600</p>
             </div>
@@ -131,20 +133,26 @@ const SingleProduct = () => {
           </div>
           <div>
             {/* drowdown items */}
-            <div className="flex justify-between items-center border-b border-black/30 h-14">
-              <p className="text-black/95 text-base">Description</p>
-              <HiChevronDown className="text-base" />
-            </div>
+            <Dropdown dropdownTitle="Description">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore
+              quos deleniti, mollitia, vitae harum suscipit voluptatem quasi, ab
+              assumenda accusantium rem praesentium accusamus quae quam tempore
+              nostrum corporis eaque. Mollitia.
+            </Dropdown>
 
-            <div className="flex justify-between items-center border-b border-black/30 h-14">
-              <p className="text-black/95 text-base">Product Details</p>
-              <HiChevronDown className="text-base" />
-            </div>
+            <Dropdown dropdownTitle="Product Details">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ad
+              at odio illo, necessitatibus, reprehenderit dolore voluptas ea
+              consequuntur ducimus repellat soluta mollitia facere sapiente.
+              Unde provident possimus hic dolore.
+            </Dropdown>
 
-            <div className="flex justify-between items-center border-b border-black/30 h-14">
-              <p className="text-black/95 text-base">Delivery Details</p>
-              <HiChevronDown className="text-base" />
-            </div>
+            <Dropdown dropdownTitle="Delivery Details">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga ad
+              at odio illo, necessitatibus, reprehenderit dolore voluptas ea
+              consequuntur ducimus repellat soluta mollitia facere sapiente.
+              Unde provident possimus hic dolore.
+            </Dropdown>
           </div>
         </div>
       </div>
