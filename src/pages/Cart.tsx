@@ -192,14 +192,16 @@ const Cart = () => {
               </div>
             </dl>
 
-            <div className="mt-6">
-              <Link
-                to="/checkout"
-                className="text-white bg-secondaryBrown text-center text-xl font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
-              >
-                Checkout
-              </Link>
-            </div>
+            {productsInCart.length > 0 && (
+              <div className="mt-6">
+                <Link
+                  to="/checkout"
+                  className="text-white bg-secondaryBrown text-center text-xl font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+                >
+                  Checkout
+                </Link>
+              </div>
+            )}
           </section>
         </form>
       </div>
