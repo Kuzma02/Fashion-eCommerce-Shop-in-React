@@ -31,10 +31,8 @@ const ProductGridWrapper = ({
 
       if(category){
         searchedProducts = searchedProducts.filter((product: Product) => {
-          console.log(product.category, category);
           return product.category === category;
         });
-        console.log(searchedProducts);
 
       }
 
