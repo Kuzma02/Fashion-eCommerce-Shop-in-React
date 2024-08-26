@@ -1,4 +1,3 @@
-import { HiChevronDown } from "react-icons/hi2";
 import {
   Button,
   Dropdown,

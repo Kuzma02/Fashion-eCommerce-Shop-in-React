@@ -3,7 +3,6 @@ import {
   HiXMark as XMarkIcon,
   HiQuestionMarkCircle as QuestionMarkCircleIcon,
 } from "react-icons/hi2";
-import { Button } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { Link } from "react-router-dom";
 import {
@@ -114,7 +113,9 @@ const Cart = () => {
                         />
                       )}
 
-                      <span>{product?.stock ? "In stock" : `Out of stock`}</span>
+                      <span>
+                        {product?.stock ? "In stock" : `Out of stock`}
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -192,7 +193,12 @@ const Cart = () => {
             </dl>
 
             <div className="mt-6">
-              <Button text="Checkout" mode="brown" />
+              <Link
+                to="/checkout"
+                className="text-white bg-secondaryBrown text-center text-xl font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+              >
+                Checkout
+              </Link>
             </div>
           </section>
         </form>
