@@ -72,10 +72,6 @@ const SingleProduct = () => {
             src={`/src/assets/${singleProduct?.image}`}
             alt={singleProduct?.title}
           />
-          <img
-            src={`/src/assets/${singleProduct?.image}`}
-            alt={singleProduct?.title}
-          />
         </div>
         <div className="w-full flex flex-col gap-5 mt-9">
           <div className="flex flex-col gap-2">

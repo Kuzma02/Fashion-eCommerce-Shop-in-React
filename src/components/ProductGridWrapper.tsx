@@ -5,11 +5,13 @@ const ProductGridWrapper = ({
   searchQuery,
   sortCriteria,
   category,
+  limit,
   children,
 }: {
   searchQuery?: string;
   sortCriteria?: string;
   category?: string;
+  limit?: number;
   children:
     | ReactElement<{ products: Product[] }>
     | ReactElement<{ products: Product[] }>[];
@@ -29,11 +31,10 @@ const ProductGridWrapper = ({
         product.title.toLowerCase().includes(query.toLowerCase())
       );
 
-      if(category){
+      if (category) {
         searchedProducts = searchedProducts.filter((product: Product) => {
           return product.category === category;
         });
-
       }
 
       // Sort the products based on the sortCriteria
@@ -51,7 +52,11 @@ const ProductGridWrapper = ({
         );
       }
 
-      setProducts(searchedProducts);
+      if (limit) {
+        setProducts(searchedProducts.slice(0, limit));
+      } else {
+        setProducts(searchedProducts);
+      }
     },
     []
   );

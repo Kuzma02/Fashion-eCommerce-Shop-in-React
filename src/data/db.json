@@ -46,13 +46,121 @@
       "stock": 0
     },
     {
-      "id": "5",
+      "id": "6",
       "title": "Super Luxury Dress",
       "image": "product image 6.jpg",
       "category": "luxury-collection",
       "price": 8500,
       "popularity": 20,
       "stock": 20
+    },
+    {
+      "id": "7",
+      "title": "Luxury Brown Dress",
+      "image": "product image 7.jpg",
+      "category": "luxury-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "8",
+      "title": "Premium Brown Dress",
+      "image": "product image 8.jpg",
+      "category": "unique-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "9",
+      "title": "Luxury White Dress",
+      "image": "product image 9.jpg",
+      "category": "luxury-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "10",
+      "title": "Brown Limited Collection",
+      "image": "product image 10.jpg",
+      "category": "unique-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "11",
+      "title": "Golden Premium T-shirt",
+      "image": "product image 11.jpg",
+      "category": "luxury-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "12",
+      "title": "Golden T-shirt",
+      "image": "product image 12.jpg",
+      "category": "summer-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "13",
+      "title": "White Premium T-shirt",
+      "image": "product image 13.jpg",
+      "category": "special-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "14",
+      "title": "Brown Premium T-shirt",
+      "image": "product image 14.jpg",
+      "category": "special-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "15",
+      "title": "Brown Special Clothing",
+      "image": "product image 15.jpg",
+      "category": "special-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "16",
+      "title": "White Special Clothing",
+      "image": "product image 16.jpg",
+      "category": "special-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "17",
+      "title": "Dark Special Clothing",
+      "image": "product image 17.jpg",
+      "category": "special-edition",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
+    },
+    {
+      "id": "18",
+      "title": "Brown Premium Clothing",
+      "image": "product image 18.jpg",
+      "category": "unique-collection",
+      "price": 4500,
+      "popularity": 5,
+      "stock": 500
     }
 
   ],
