@@ -162,13 +162,26 @@
       "popularity": 5,
       "stock": 500
     }
-
   ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "orders": [
+    {
+      "emailAddress": "kuzma@gmail.com",
+      "firstName": "Aca",
+      "lastName": "Kuzma",
+      "company": "Bojan Cesnak",
+      "address": "Marka Markovic 22",
+      "apartment": "123",
+      "city": "Belgrade",
+      "country": "United States",
+      "region": "Serbia",
+      "postalCode": "11080",
+      "phone": "06123123132",
+      "paymentType": "on",
+      "cardNumber": "12312313132",
+      "nameOnCard": "Aca JK",
+      "expirationDate": "12323",
+      "cvc": "123",
+      "id": 1
+    }
+  ]
 }

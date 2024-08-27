@@ -10,7 +10,7 @@ import {
   Shop,
   SingleProduct,
 } from "./pages";
-import { searchAction } from "./actions/index";
+import { checkoutAction, searchAction } from "./actions/index";
 import { shopCategoryLoader } from "./pages/Shop";
 
 const router = createBrowserRouter([
@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <Checkout />,
+        action: checkoutAction,
       },
       {
         path: "search",

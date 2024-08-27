@@ -2,6 +2,7 @@ import { HiTrash as TrashIcon } from "react-icons/hi2";
 import { Button } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { removeProductFromTheCart } from "../features/cart/cartSlice";
+import { Form } from "react-router-dom";
 
 const paymentMethods = [
   { id: "credit-card", title: "Credit card" },
@@ -18,7 +19,10 @@ const Checkout = () => {
       <div className="pb-24 pt-16 px-5 max-[400px]:px-3">
         <h2 className="sr-only">Checkout</h2>
 
-        <form className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+        <Form
+          method="POST"
+          className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16"
+        >
           <div>
             <div>
               <h2 className="text-lg font-medium text-gray-900">
@@ -36,9 +40,10 @@ const Checkout = () => {
                   <input
                     type="email"
                     id="email-address"
-                    name="email-address"
+                    name="emailAddress"
                     autoComplete="email"
                     className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                    required={true}
                   />
                 </div>
               </div>
@@ -61,9 +66,10 @@ const Checkout = () => {
                     <input
                       type="text"
                       id="first-name"
-                      name="first-name"
+                      name="firstName"
                       autoComplete="given-name"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -79,10 +85,11 @@ const Checkout = () => {
                     <input
                       type="text"
                       id="last-name"
-                      name="last-name"
+                      name="lastName"
                       autoComplete="family-name"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
-                    />
+                      required={true}
+                   />
                   </div>
                 </div>
 
@@ -99,6 +106,7 @@ const Checkout = () => {
                       name="company"
                       id="company"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -117,6 +125,7 @@ const Checkout = () => {
                       id="address"
                       autoComplete="street-address"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -134,6 +143,7 @@ const Checkout = () => {
                       name="apartment"
                       id="apartment"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -152,6 +162,7 @@ const Checkout = () => {
                       id="city"
                       autoComplete="address-level2"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -169,6 +180,7 @@ const Checkout = () => {
                       name="country"
                       autoComplete="country-name"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     >
                       <option>United States</option>
                       <option>Canada</option>
@@ -191,6 +203,7 @@ const Checkout = () => {
                       id="region"
                       autoComplete="address-level1"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -205,10 +218,11 @@ const Checkout = () => {
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="postal-code"
+                      name="postalCode"
                       id="postal-code"
                       autoComplete="postal-code"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -227,6 +241,7 @@ const Checkout = () => {
                       id="phone"
                       autoComplete="tel"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -245,7 +260,7 @@ const Checkout = () => {
                       {paymentMethodIdx === 0 ? (
                         <input
                           id={paymentMethod.id}
-                          name="payment-type"
+                          name="paymentType"
                           type="radio"
                           defaultChecked
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
@@ -253,7 +268,7 @@ const Checkout = () => {
                       ) : (
                         <input
                           id={paymentMethod.id}
-                          name="payment-type"
+                          name="paymentType"
                           type="radio"
                           className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
@@ -282,9 +297,10 @@ const Checkout = () => {
                     <input
                       type="text"
                       id="card-number"
-                      name="card-number"
+                      name="cardNumber"
                       autoComplete="cc-number"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -300,9 +316,10 @@ const Checkout = () => {
                     <input
                       type="text"
                       id="name-on-card"
-                      name="name-on-card"
+                      name="nameOnCard"
                       autoComplete="cc-name"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -317,10 +334,11 @@ const Checkout = () => {
                   <div className="mt-1">
                     <input
                       type="text"
-                      name="expiration-date"
+                      name="expirationDate"
                       id="expiration-date"
                       autoComplete="cc-exp"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -339,6 +357,7 @@ const Checkout = () => {
                       id="cvc"
                       autoComplete="csc"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
+                      required={true}
                     />
                   </div>
                 </div>
@@ -440,7 +459,7 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   );
