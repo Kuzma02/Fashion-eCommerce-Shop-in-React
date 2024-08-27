@@ -3,6 +3,7 @@ import Button from "./Button";
 import { useAppDispatch } from "../hooks";
 import { addProductToTheCart } from "../features/cart/cartSlice";
 import { formatCategoryName } from "../utils/formatCategoryName";
+import toast from "react-hot-toast";
 
 const ProductItem = ({
   id,
@@ -11,7 +12,7 @@ const ProductItem = ({
   category,
   price,
   popularity,
-  stock
+  stock,
 }: {
   id: string;
   image: string;
@@ -19,7 +20,7 @@ const ProductItem = ({
   category: string;
   price: number;
   popularity: number;
-  stock: number
+  stock: number;
 }) => {
   const dispatch = useAppDispatch();
 
@@ -47,7 +48,7 @@ const ProductItem = ({
         <Button
           mode="brown"
           text="Add to cart"
-          onClick={() =>
+          onClick={() => {
             dispatch(
               addProductToTheCart({
                 id: id + "xlblack",
@@ -59,12 +60,17 @@ const ProductItem = ({
                 size: "xl",
                 color: "black",
                 popularity,
-                stock
+                stock,
               })
-            )
-          }
+            ); toast.success("Product added to the cart");
+          }}
         />
-        <Link to={`/product/${id}`} className="bg-white text-black text-center text-xl border border-[rgba(0, 0, 0, 0.40)] font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base">Learn more</Link>
+        <Link
+          to={`/product/${id}`}
+          className="bg-white text-black text-center text-xl border border-[rgba(0, 0, 0, 0.40)] font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+        >
+          Learn more
+        </Link>
       </div>
     </div>
   );
