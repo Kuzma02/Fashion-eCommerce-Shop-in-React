@@ -80,7 +80,7 @@ const SingleProduct = () => {
               <p className="text-base text-secondaryBrown">
                 {formatCategoryName(singleProduct?.category || "")}
               </p>
-              <p className="text-base font-bold">$3600</p>
+              <p className="text-base font-bold">${ singleProduct?.price }</p>
             </div>
           </div>
           <div className="flex flex-col gap-2">
