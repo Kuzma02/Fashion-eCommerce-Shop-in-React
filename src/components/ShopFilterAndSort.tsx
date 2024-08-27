@@ -1,3 +1,5 @@
+import { useAppSelector } from "../hooks";
+
 const ShopFilterAndSort = ({
   sortCriteria,
   setSortCriteria,
@@ -5,9 +7,10 @@ const ShopFilterAndSort = ({
   sortCriteria: string;
   setSortCriteria: (value: string) => void;
 }) => {
+  const { showingProducts, totalProducts } = useAppSelector(state => state.shop)
   return (
     <div className="flex justify-between items-center px-5 max-sm:flex-col max-sm:gap-5">
-      <p className="text-lg">Showing 1–12 of 20 results</p>
+      <p className="text-lg">Showing 1–{ showingProducts } of { totalProducts } results</p>
       <div className="flex gap-3 items-center">
         <p>Sort by:</p>
         <div className="relative">
