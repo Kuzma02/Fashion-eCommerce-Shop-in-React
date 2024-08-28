@@ -2,7 +2,29 @@ import { HiTrash as TrashIcon } from "react-icons/hi2";
 import { Button } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { removeProductFromTheCart } from "../features/cart/cartSlice";
-import { Form } from "react-router-dom";
+import customFetch from "../axios/custom";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { checkCheckoutFormData } from "../utils/checkCheckoutFormData";
+
+/*
+address: "Marka Markovic 22"
+apartment: "132"
+cardNumber: "21313"
+city: "Belgrade"
+company: "Bojan Cesnak"
+country: "United States"
+cvc: "122"
+emailAddress: "kuzma@gmail.com"
+expirationDate: "12312"
+firstName: "Aca22"
+lastName: "Kuzma"
+nameOnCard: "Aca JK"
+paymentType: "on"
+phone: "06123123132"
+postalCode: "11080"
+region: "Serbia"
+*/
 
 const paymentMethods = [
   { id: "credit-card", title: "Credit card" },
@@ -13,14 +35,38 @@ const paymentMethods = [
 const Checkout = () => {
   const { productsInCart, subtotal } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleCheckoutSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+
+    const checkoutData = {
+      data,
+      products: productsInCart,
+      subtotal: subtotal,
+    };
+
+    if (!checkCheckoutFormData(checkoutData)) return;
+
+    const response = await customFetch.post("/orders", checkoutData);
+
+    if (response.status === 201) {
+      toast.success("Order has been placed successfully");
+      navigate("/order-confirmation");
+    } else {
+      toast.error("Something went wrong, please try again later");
+    }
+  };
 
   return (
     <div className="mx-auto max-w-screen-2xl">
       <div className="pb-24 pt-16 px-5 max-[400px]:px-3">
         <h2 className="sr-only">Checkout</h2>
 
-        <Form
-          method="POST"
+        <form
+          onSubmit={handleCheckoutSubmit}
           className="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16"
         >
           <div>
@@ -89,7 +135,7 @@ const Checkout = () => {
                       autoComplete="family-name"
                       className="block w-full py-2 indent-2 border-gray-300 outline-none focus:border-gray-400 border border shadow-sm sm:text-sm"
                       required={true}
-                   />
+                    />
                   </div>
                 </div>
 
@@ -459,7 +505,7 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );

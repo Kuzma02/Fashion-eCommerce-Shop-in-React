@@ -5,6 +5,7 @@ import {
   HomeLayout,
   Landing,
   Login,
+  OrderConfirmation,
   Register,
   Search,
   Shop,
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "order-confirmation",
+        element: <OrderConfirmation />,
       }
     ],
   },
