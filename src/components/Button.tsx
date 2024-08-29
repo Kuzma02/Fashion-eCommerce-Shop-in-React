@@ -11,7 +11,7 @@ const Button = ({ mode, text, ...props }: ButtonProps) => {
       {mode === "white" && (
         <button
           {...props}
-          className="bg-white text-black text-center text-xl border border-[rgba(0, 0, 0, 0.40)] font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+          className="bg-white text-black text-center text-xl border border-gray-400 font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
         >
           {text}
         </button>

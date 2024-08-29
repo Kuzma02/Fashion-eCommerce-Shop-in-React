@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../components";
 
 const OrderHistory = () => {
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));

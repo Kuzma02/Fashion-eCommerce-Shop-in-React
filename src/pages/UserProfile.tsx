@@ -7,6 +7,12 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
+  const logout = () => {
+    toast.error("Logged out successfully");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
+
   useEffect(() => {
     if (!user?.id) {
       toast.error("Please login to view this page");
@@ -64,6 +70,7 @@ const UserProfile = () => {
         >
           Order History
         </Link>
+        <Button onClick={logout} text="Logout" mode="white" />
       </form>
     </div>
   );
