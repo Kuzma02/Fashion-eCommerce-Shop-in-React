@@ -1,27 +1,37 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const SingleOrderHistory = () => {
-  const { id } = useParams<{ id: string }>();
+  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const navigate = useNavigate();
+  // Get the order ID from the URL
 
   const order = {
-    id: '1',
-    date: '2023-10-01',
+    id: "1",
+    date: "2023-10-01",
     total: 150.0,
-    status: 'Delivered',
+    status: "Delivered",
     items: [
       {
-        name: 'Product 1',
+        name: "Product 1",
         quantity: 2,
         price: 50.0,
       },
       {
-        name: 'Product 2',
+        name: "Product 2",
         quantity: 1,
         price: 50.0,
       },
     ],
   };
+
+  useEffect(() => {
+    if (!user?.id) {
+      toast.error("Please login to view this page");
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
   return (
     <div className="max-w-screen-2xl mx-auto pt-20 px-5">
@@ -44,8 +54,12 @@ const SingleOrderHistory = () => {
             {order.items.map((item, index) => (
               <tr key={index}>
                 <td className="py-3 px-4 border-b">{item.name}</td>
-                <td className="py-3 px-4 border-b text-center">{item.quantity}</td>
-                <td className="py-3 px-4 border-b text-right">${item.price.toFixed(2)}</td>
+                <td className="py-3 px-4 border-b text-center">
+                  {item.quantity}
+                </td>
+                <td className="py-3 px-4 border-b text-right">
+                  ${item.price.toFixed(2)}
+                </td>
               </tr>
             ))}
           </tbody>

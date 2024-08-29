@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const UserProfile = () => {
+  const navigate = useNavigate();
+  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+
+  useEffect(() => {
+    if (!user?.id) {
+      toast.error("Please login to view this page");
+      navigate("/login");
+    }
+  }, [user, navigate]);
   return (
     <div className="max-w-screen-lg mx-auto mt-24 px-5">
       <h1 className="text-3xl font-bold mb-8">User Profile</h1>
@@ -47,7 +58,12 @@ const UserProfile = () => {
           />
         </div>
         <Button type="submit" text="Update Profile" mode="brown" />
-        <Link to="/order-history" className="bg-white text-black text-center text-xl border border-gray-400 font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base">Order History</Link>
+        <Link
+          to="/order-history"
+          className="bg-white text-black text-center text-xl border border-gray-400 font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+        >
+          Order History
+        </Link>
       </form>
     </div>
   );

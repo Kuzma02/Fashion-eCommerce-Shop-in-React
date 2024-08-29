@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components";
 import { checkLoginFormData } from "../utils/checkLoginFormData";
 import customFetch from "../axios/custom";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Get form data
@@ -12,25 +15,38 @@ const Login = () => {
     const data = Object.fromEntries(formData);
     // Check if form data is valid
     if (!checkLoginFormData(data)) return;
-    console.log(data);
-
+    
     // Check if user with the email and password exists
     const users = await customFetch.get("/users");
+    let userId: number = 0; // Initialize userId with a default value
     const userExists = users.data.some(
-      (user: { email: string; password: string }) => {
-        console.log(user.email, data.email, user.password, data.password);
-
+      (user: { id: number; email: string; password: string }) => {
+        if (user.email === data.email) {
+          userId = user.id;
+        }
         return user.email === data.email && user.password === data.password;
       }
     );
+    console.log(userExists);
+    
     // if user exists, show success message
     if (userExists) {
       toast.success("You logged in successfully");
+      localStorage.setItem("user", JSON.stringify({...data, id: userId}));
+      navigate("/user-profile");
       return;
     } else {
       toast.error("Please enter correct email and password");
     }
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      toast.success("You are already logged in");
+      navigate("/user-profile");
+    }
+  }, []);
 
   return (
     <div className="max-w-screen-2xl mx-auto pt-24 flex items-center justify-center">
