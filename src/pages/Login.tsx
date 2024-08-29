@@ -13,17 +13,17 @@ const Login = () => {
     // Check if form data is valid
     if (!checkLoginFormData(data)) return;
     console.log(data);
-    
 
-    // Check if user with this email already exists
+    // Check if user with the email and password exists
     const users = await customFetch.get("/users");
     const userExists = users.data.some(
       (user: { email: string; password: string }) => {
         console.log(user.email, data.email, user.password, data.password);
-        
+
         return user.email === data.email && user.password === data.password;
       }
     );
+    // if user exists, show success message
     if (userExists) {
       toast.success("You logged in successfully");
       return;
