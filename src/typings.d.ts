@@ -15,3 +15,12 @@ interface Product {
     color: string;
     stock: number;
   }
+
+  interface User {
+    id: string;
+    name: string;
+    lastname: string;
+    email: string;
+    role: string;
+    password: string;
+  }

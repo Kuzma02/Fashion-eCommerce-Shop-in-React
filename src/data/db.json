@@ -166,11 +166,10 @@
   "orders": [],
   "users": [
     {
-      "name": "Aleksandar",
-      "lastname": "Kuzmanovic",
-      "email": "aleksandarkuzmanovic02@gmail.com",
-      "password": "123321",
-      "confirmPassword": "123321",
+      "name": "Aleksandar22",
+      "lastname": "Kuzmanovic22",
+      "email": "aleksandarkuzmanovic021@gmail.com",
+      "password": "1233214321",
       "id": 1
     }
   ]

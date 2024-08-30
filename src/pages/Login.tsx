@@ -46,7 +46,7 @@ const Login = () => {
       toast.success("You are already logged in");
       navigate("/user-profile");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="max-w-screen-2xl mx-auto pt-24 flex items-center justify-center">
