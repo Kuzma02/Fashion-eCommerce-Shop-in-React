@@ -443,6 +443,86 @@
       "orderStatus": "Processing",
       "orderDate": "2024-08-31T07:12:42.805Z",
       "id": 5
+    },
+    {
+      "data": {
+        "emailAddress": "a@gmail.com",
+        "firstName": "Aca",
+        "lastName": "Cesnak",
+        "company": "Bojan Cesnak",
+        "address": "Marka Markovic 22",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "06123123132",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "321",
+        "expirationDate": "123",
+        "cvc": "321"
+      },
+      "products": [
+        {
+          "id": "2xlblack",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 4,
+          "stock": 20
+        }
+      ],
+      "subtotal": 1050,
+      "orderStatus": "Processing",
+      "orderDate": "8/31/2024",
+      "id": 6
+    },
+    {
+      "data": {
+        "emailAddress": "a@gmail.com",
+        "firstName": "Aca",
+        "lastName": "Cesnak",
+        "company": "Bojan Cesnak",
+        "address": "Marka Markovic 22",
+        "apartment": "123",
+        "city": "asd",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "06123123132",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "321",
+        "expirationDate": "123",
+        "cvc": "321"
+      },
+      "products": [
+        {
+          "id": "2xlblack",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 4,
+          "stock": 20
+        }
+      ],
+      "subtotal": 1050,
+      "user": {
+        "email": "a@gmail.com",
+        "id": 3
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T07:47:13.076Z",
+      "id": 7
     }
   ],
   "users": [
@@ -460,6 +540,14 @@
       "password": "123321",
       "confirmPassword": "123321",
       "id": 2
+    },
+    {
+      "name": "A",
+      "lastname": "A",
+      "email": "a@gmail.com",
+      "password": "123321",
+      "confirmPassword": "123321",
+      "id": 3
     }
   ]
 }

@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "./Button";
-import { useAppDispatch } from "../hooks";
-import { addProductToTheCart } from "../features/cart/cartSlice";
 import { formatCategoryName } from "../utils/formatCategoryName";
-import toast from "react-hot-toast";
 
 const ProductItem = ({
   id,
@@ -11,19 +7,13 @@ const ProductItem = ({
   title,
   category,
   price,
-  popularity,
-  stock,
 }: {
   id: string;
   image: string;
   title: string;
   category: string;
   price: number;
-  popularity: number;
-  stock: number;
 }) => {
-  const dispatch = useAppDispatch();
-
   return (
     <div className="w-[400px] flex flex-col gap-2 justify-center max-md:w-[300px]">
       <Link
@@ -45,26 +35,12 @@ const ProductItem = ({
         ${price}
       </p>
       <div className="w-full flex flex-col gap-1">
-        <Button
-          mode="brown"
-          text="Add to cart"
-          onClick={() => {
-            dispatch(
-              addProductToTheCart({
-                id: id + "xlblack",
-                image,
-                title,
-                category,
-                price,
-                quantity: 1,
-                size: "xl",
-                color: "black",
-                popularity,
-                stock,
-              })
-            ); toast.success("Product added to the cart");
-          }}
-        />
+        <Link
+          to={`/product/${id}`}
+          className="text-white bg-secondaryBrown text-center text-xl font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"
+        >
+          View product
+        </Link>
         <Link
           to={`/product/${id}`}
           className="bg-white text-black text-center text-xl border border-[rgba(0, 0, 0, 0.40)] font-normal tracking-[0.6px] leading-[72px] w-full h-12 flex items-center justify-center max-md:text-base"

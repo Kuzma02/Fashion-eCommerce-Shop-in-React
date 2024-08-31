@@ -1,13 +1,17 @@
+import { useState } from "react";
 import {
   Button,
   ProductGrid,
   ProductGridWrapper,
-  ShowingPagination,
+  ShowingSearchPagination,
 } from "../components";
 import { Form, useSearchParams } from "react-router-dom";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
+  const [currentPage, setCurrentPage] = useState<number>(
+    parseInt(searchParams.get("page") || "1")
+  );
 
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -26,11 +30,11 @@ const Search = () => {
         </div>
       </Form>
 
-      <ProductGridWrapper searchQuery={searchParams.get("query")!}>
+      <ProductGridWrapper searchQuery={searchParams.get("query")!} page={currentPage}>
         <ProductGrid />
       </ProductGridWrapper>
 
-      <ShowingPagination />
+      <ShowingSearchPagination page={currentPage} setCurrentPage={setCurrentPage} />
     </div>
   );
 };
