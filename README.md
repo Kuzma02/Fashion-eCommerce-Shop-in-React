@@ -14,7 +14,7 @@ npm install
 <p>4. After everything is installed you need to write the following command:</p>
 
 ```
-npm run dev
+npm start
 ```
 
 <h2>Project screenshots: </h2>
