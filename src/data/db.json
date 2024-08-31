@@ -523,6 +523,48 @@
       "orderStatus": "Processing",
       "orderDate": "2024-08-31T07:47:13.076Z",
       "id": 7
+    },
+    {
+      "data": {
+        "emailAddress": "lebronjames@gmail.com",
+        "firstName": "Lebron",
+        "lastName": "James",
+        "company": "NBA",
+        "address": "NBA Street",
+        "apartment": "212",
+        "city": "Cleveland",
+        "country": "United States",
+        "region": "USA",
+        "postalCode": "1123012",
+        "phone": "123123",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "123",
+        "expirationDate": "123",
+        "cvc": "123"
+      },
+      "products": [
+        {
+          "id": "2smblue",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 3,
+          "size": "sm",
+          "color": "blue",
+          "popularity": 4,
+          "stock": 20
+        }
+      ],
+      "subtotal": 3150,
+      "user": {
+        "email": "lebronjames@gmail.com",
+        "id": 4
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T09:54:07.549Z",
+      "id": 8
     }
   ],
   "users": [
@@ -548,6 +590,14 @@
       "password": "123321",
       "confirmPassword": "123321",
       "id": 3
+    },
+    {
+      "name": "Lebron",
+      "lastname": "James",
+      "email": "lebronjames@gmail.com",
+      "password": "1233214321",
+      "confirmPassword": "1233214321",
+      "id": 4
     }
   ]
 }

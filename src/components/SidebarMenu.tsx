@@ -14,17 +14,13 @@ const SidebarMenu = ({
   setIsSidebarOpen: (prev: boolean) => void;
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user") || "{}")
-  );
-  const { loginStatus }  = useAppSelector((state) => state.auth);
+  const { loginStatus } = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const logout = () => {
     toast.error("Logged out successfully");
     localStorage.removeItem("user");
     store.dispatch(setLoginStatus(false));
-    setUser({});
     navigate("/login");
   };
 
@@ -36,11 +32,6 @@ const SidebarMenu = ({
       return () => clearTimeout(timer);
     }
   }, [isSidebarOpen]);
-
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user") || "{}"));
-    console.log("called");
-  }, [loginStatus]);
 
   return (
     <>

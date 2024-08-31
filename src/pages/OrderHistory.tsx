@@ -48,7 +48,7 @@ const OrderHistory = () => {
                 <td className="py-3 px-4 border-b text-center">{order.id}</td>
                 <td className="py-3 px-4 border-b text-center">{ formatDate(order.orderDate) }</td>
                 <td className="py-3 px-4 border-b text-center">
-                  ${order.subtotal}
+                  ${order.subtotal + 5 + (order.subtotal / 5)}
                 </td>
                 <td className="py-3 px-4 border-b text-center">
                   { order.orderStatus }
