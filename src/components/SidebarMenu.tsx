@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { HiXMark } from "react-icons/hi2";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../hooks";
+import { setLoginStatus } from "../features/auth/authSlice";
+import { store } from "../store";
 
 const SidebarMenu = ({
   isSidebarOpen,
@@ -14,11 +17,13 @@ const SidebarMenu = ({
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("user") || "{}")
   );
+  const { loginStatus }  = useAppSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const logout = () => {
     toast.error("Logged out successfully");
     localStorage.removeItem("user");
+    store.dispatch(setLoginStatus(false));
     setUser({});
     navigate("/login");
   };
@@ -31,6 +36,11 @@ const SidebarMenu = ({
       return () => clearTimeout(timer);
     }
   }, [isSidebarOpen]);
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user") || "{}"));
+    console.log("called");
+  }, [loginStatus]);
 
   return (
     <>
@@ -75,7 +85,7 @@ const SidebarMenu = ({
             >
               Search
             </Link>
-            {user && user.id ? (
+            {loginStatus ? (
               <>
                 <button
                   onClick={logout}

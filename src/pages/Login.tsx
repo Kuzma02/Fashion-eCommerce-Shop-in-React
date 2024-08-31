@@ -4,6 +4,8 @@ import { checkLoginFormData } from "../utils/checkLoginFormData";
 import customFetch from "../axios/custom";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import { setLoginStatus } from "../features/auth/authSlice";
+import { store } from "../store";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,12 +29,12 @@ const Login = () => {
         return user.email === data.email && user.password === data.password;
       }
     );
-    console.log(userExists);
     
     // if user exists, show success message
     if (userExists) {
       toast.success("You logged in successfully");
       localStorage.setItem("user", JSON.stringify({...data, id: userId}));
+      store.dispatch(setLoginStatus(true));
       navigate("/user-profile");
       return;
     } else {

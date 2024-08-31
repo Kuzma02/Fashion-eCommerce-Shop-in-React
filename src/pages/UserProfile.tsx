@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import customFetch from "../axios/custom";
 import { checkUserProfileFormData } from "../utils/checkUserProfileFormData";
+import { setLoginStatus } from "../features/auth/authSlice";
+import { store } from "../store";
 
 const UserProfile = () => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const UserProfile = () => {
   const logout = () => {
     toast.error("Logged out successfully");
     localStorage.removeItem("user");
+    store.dispatch(setLoginStatus(false));
     navigate("/login");
   };
 
