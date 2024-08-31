@@ -50,7 +50,24 @@ const Checkout = () => {
 
     if (!checkCheckoutFormData(checkoutData)) return;
 
-    const response = await customFetch.post("/orders", checkoutData);
+    let response;
+    if (JSON.parse(localStorage.getItem("user") || "{}").email) {
+      response = await customFetch.post("/orders", {
+        ...checkoutData,
+        user: {
+          email: JSON.parse(localStorage.getItem("user") || "{}").email,
+          id: JSON.parse(localStorage.getItem("user") || "{}").id,
+        },
+        orderStatus: "Processing",
+        orderDate: new Date().toISOString(),
+      });
+    } else {
+      response = await customFetch.post("/orders", {
+        ...checkoutData,
+        orderStatus: "Processing",
+        orderDate: new Date().toLocaleDateString(),
+      });
+    }
 
     if (response.status === 201) {
       toast.success("Order has been placed successfully");

@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import customFetch from "../axios/custom";
+import { formatDate } from "../utils/formatDate";
+
+export const loader = async () => {
+  try {
+    const response = await customFetch.get("/orders");
+    
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch orders:", error);
+    return [];
+  }
+};
 
 const OrderHistory = () => {
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const orders = useLoaderData() as Order[];
+  
   const navigate = useNavigate();
-  const orders = [
-    {
-      id: "1",
-      date: "2023-10-01",
-      total: 150.0,
-      status: "Delivered",
-    },
-    {
-      id: "2",
-      date: "2023-09-15",
-      total: 200.0,
-      status: "Shipped",
-    },
-    {
-      id: "3",
-      date: "2023-09-01",
-      total: 100.0,
-      status: "Processing",
-    },
-  ];
 
   useEffect(() => {
     if (!user?.id) {
@@ -48,19 +43,19 @@ const OrderHistory = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
+            {orders.map((order) => order?.user && order.user.id === user.id && (
               <tr key={order.id}>
                 <td className="py-3 px-4 border-b text-center">{order.id}</td>
-                <td className="py-3 px-4 border-b text-center">{order.date}</td>
+                <td className="py-3 px-4 border-b text-center">{ formatDate(order.orderDate) }</td>
                 <td className="py-3 px-4 border-b text-center">
-                  ${order.total.toFixed(2)}
+                  ${order.subtotal}
                 </td>
                 <td className="py-3 px-4 border-b text-center">
-                  {order.status}
+                  { order.orderStatus }
                 </td>
                 <td className="py-3 px-4 border-b text-center">
                   <Link
-                    to={`/order/${order.id}`}
+                    to={`/order-history/${order.id}`}
                     className="text-blue-500 hover:underline"
                   >
                     View Details

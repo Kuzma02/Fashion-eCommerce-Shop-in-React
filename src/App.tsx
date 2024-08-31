@@ -16,6 +16,7 @@ import {
 } from "./pages";
 import { checkoutAction, searchAction } from "./actions/index";
 import { shopCategoryLoader } from "./pages/Shop";
+import { loader as orderHistoryLoader } from "./pages/OrderHistory";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
       {
         path: "order-history",
         element: <OrderHistory />,
+        loader: orderHistoryLoader,
       },
       {
         path: "order-history/:id",

@@ -12,6 +12,7 @@ import { useAppDispatch } from "../hooks";
 import WithSelectInputWrapper from "../utils/withSelectInputWrapper";
 import WithNumberInputWrapper from "../utils/withNumberInputWrapper";
 import { formatCategoryName } from "../utils/formatCategoryName";
+import toast from "react-hot-toast";
 
 const SingleProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -61,6 +62,7 @@ const SingleProduct = () => {
           stock: singleProduct.stock,
         })
       );
+      toast.success("Product added to the cart");
     }
   };
 

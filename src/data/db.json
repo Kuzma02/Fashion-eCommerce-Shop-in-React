@@ -163,7 +163,288 @@
       "stock": 500
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "data": {
+        "emailAddress": "bc22@gmail.com",
+        "firstName": "Bojan",
+        "lastName": "Cesnak",
+        "company": "BC",
+        "address": "B2",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "06123123132",
+        "paymentType": "on",
+        "cardNumber": "12313212",
+        "nameOnCard": "123123",
+        "expirationDate": "123123",
+        "cvc": "12312"
+      },
+      "products": [
+        {
+          "id": "2xsblack",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 3,
+          "size": "xs",
+          "color": "black",
+          "popularity": 4,
+          "stock": 20
+        }
+      ],
+      "subtotal": 3150,
+      "user": {
+        "email": "bc22@gmail.com",
+        "id": 2
+      },
+      "id": 1
+    },
+    {
+      "data": {
+        "emailAddress": "bc22@gmail.com",
+        "firstName": "Bojan",
+        "lastName": "Cesnak",
+        "company": "asd",
+        "address": "asd",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "123",
+        "postalCode": "123",
+        "phone": "123",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "123",
+        "expirationDate": "123",
+        "cvc": "123"
+      },
+      "products": [
+        {
+          "id": "2xlblack",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 3,
+          "size": "xl",
+          "color": "black",
+          "popularity": 4,
+          "stock": 20
+        }
+      ],
+      "subtotal": 3150,
+      "user": {
+        "email": "bc22@gmail.com",
+        "id": 2
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T06:54:38.482Z",
+      "id": 2
+    },
+    {
+      "data": {
+        "emailAddress": "a@gmail.com",
+        "firstName": "Aca",
+        "lastName": "Kuzma",
+        "company": "Bojan Cesnak",
+        "address": "Marka Markovic 22",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "06123123132",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "123",
+        "expirationDate": "123",
+        "cvc": "123"
+      },
+      "products": [
+        {
+          "id": "1xlblack",
+          "image": "product image 1.jpg",
+          "title": "Luxury Dress",
+          "category": "special-edition",
+          "price": 3500,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 5,
+          "stock": 10
+        },
+        {
+          "id": "4xlblack",
+          "image": "product image 4.jpg",
+          "title": "Special Brown Dress",
+          "category": "unique-collection",
+          "price": 2500,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 2,
+          "stock": 15
+        }
+      ],
+      "subtotal": 6000,
+      "user": {
+        "email": "aleksandarkuzmanovic021@gmail.com",
+        "id": 1
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T07:01:32.959Z",
+      "id": 3
+    },
+    {
+      "data": {
+        "emailAddress": "a@gmail.com",
+        "firstName": "Aca",
+        "lastName": "Kuzma",
+        "company": "123",
+        "address": "123",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "123",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "123",
+        "expirationDate": "123",
+        "cvc": "123"
+      },
+      "products": [
+        {
+          "id": "1xlblack",
+          "image": "product image 1.jpg",
+          "title": "Luxury Dress",
+          "category": "special-edition",
+          "price": 3500,
+          "quantity": 2,
+          "size": "xl",
+          "color": "black",
+          "popularity": 5,
+          "stock": 10
+        }
+      ],
+      "subtotal": 7000,
+      "user": {
+        "email": "aleksandarkuzmanovic021@gmail.com",
+        "id": 1
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T07:07:37.188Z",
+      "id": 4
+    },
+    {
+      "data": {
+        "emailAddress": "bc22@gmail.com",
+        "firstName": "Bojan",
+        "lastName": "Cesnak",
+        "company": "Bojan Cesnak",
+        "address": "Marka Markovic 22",
+        "apartment": "123",
+        "city": "Belgrade",
+        "country": "United States",
+        "region": "Serbia",
+        "postalCode": "11080",
+        "phone": "06123123132",
+        "paymentType": "on",
+        "cardNumber": "123",
+        "nameOnCard": "123",
+        "expirationDate": "123",
+        "cvc": "123"
+      },
+      "products": [
+        {
+          "id": "6xlblack",
+          "image": "product image 6.jpg",
+          "title": "Super Luxury Dress",
+          "category": "luxury-collection",
+          "price": 8500,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 20,
+          "stock": 20
+        },
+        {
+          "id": "5xlblack",
+          "image": "product image 5.jpg",
+          "title": "Special Luxury Dress",
+          "category": "unique-collection",
+          "price": 5200,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 1,
+          "stock": 0
+        },
+        {
+          "id": "4xlblack",
+          "image": "product image 4.jpg",
+          "title": "Special Brown Dress",
+          "category": "unique-collection",
+          "price": 2500,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 2,
+          "stock": 15
+        },
+        {
+          "id": "3xlblack",
+          "image": "product image 3.jpg",
+          "title": "Luxury Blue Dress",
+          "category": "summer-edition",
+          "price": 5000,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 3,
+          "stock": 5
+        },
+        {
+          "id": "2xlblack",
+          "image": "product image 2.jpg",
+          "title": "Luxury Black Clothing",
+          "category": "luxury-collection",
+          "price": 1050,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 4,
+          "stock": 20
+        },
+        {
+          "id": "1xlblack",
+          "image": "product image 1.jpg",
+          "title": "Luxury Dress",
+          "category": "special-edition",
+          "price": 3500,
+          "quantity": 1,
+          "size": "xl",
+          "color": "black",
+          "popularity": 5,
+          "stock": 10
+        }
+      ],
+      "subtotal": 25750,
+      "user": {
+        "email": "bc22@gmail.com",
+        "id": 2
+      },
+      "orderStatus": "Processing",
+      "orderDate": "2024-08-31T07:12:42.805Z",
+      "id": 5
+    }
+  ],
   "users": [
     {
       "name": "Aleksandar22",
@@ -171,6 +452,14 @@
       "email": "aleksandarkuzmanovic021@gmail.com",
       "password": "1233214321",
       "id": 1
+    },
+    {
+      "name": "Bojan",
+      "lastname": "Cesnak",
+      "email": "bc22@gmail.com",
+      "password": "123321",
+      "confirmPassword": "123321",
+      "id": 2
     }
   ]
 }

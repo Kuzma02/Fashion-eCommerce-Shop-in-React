@@ -9,6 +9,7 @@ import {
   removeProductFromTheCart,
   updateProductQuantity,
 } from "../features/cart/cartSlice";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const { productsInCart, subtotal } = useAppSelector((state) => state.cart);
@@ -87,10 +88,10 @@ const Cart = () => {
                           <button
                             type="button"
                             className="-m-2 inline-flex p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() =>
+                            onClick={() =>{
                               dispatch(
                                 removeProductFromTheCart({ id: product?.id })
-                              )
+                              ); toast.error("Product removed from the cart");}
                             }
                           >
                             <span className="sr-only">Remove</span>
