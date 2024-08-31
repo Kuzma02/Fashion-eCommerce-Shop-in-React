@@ -1,5 +1,22 @@
 <h1>Fashion eCommerce Shop in React.js, TypeScript and JSON server</h1>
 
+<h2>Instructions</h2>
+<ol>
+  <li><p>To run the app you first need to download and install Node.js and npm on your computer. Here is a link to the tutorial that explains how to install them: <a href="https://www.youtube.com/watch?v=4FAtFwKVhn0" target="_blank">https://www.youtube.com/watch?v=4FAtFwKVhn0</a>. Also here is the link where you can download them: <a href="https://nodejs.org/en" target="_blank">https://nodejs.org/en</a></p></li>
+  <li><p>When you install all the programs you need on your computer you need to download the project. When you download the project, you need to extract it.</p></li>
+  <li><p>After you extract the project, you need to open the project folder in the command prompt or any terminal of choice. After it write the following command:</p></li>
+</ol>
+
+```
+npm install
+```
+
+<p>4. After everything is installed you need to write the following command:</p>
+
+```
+npm run dev
+```
+
 <h2>Project screenshots: </h2>
 
 <h3>Landing page</h3>
