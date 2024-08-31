@@ -42,3 +42,12 @@ body {
 .sidebar-exit-active {
   transform: translateX(-100%);
 }
+
+
+.singleOrder-table td{
+  text-align: left;
+}
+
+.singleOrder-table th{
+  text-align: left;
+}

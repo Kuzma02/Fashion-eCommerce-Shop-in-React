@@ -1,30 +1,24 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import {
+  LoaderFunctionArgs,
+  useLoaderData,
+  useNavigate,
+} from "react-router-dom";
+import customFetch from "../axios/custom";
+import { nanoid } from "nanoid";
+import { formatDate } from "../utils/formatDate";
+
+export const loader = async ({ params }: LoaderFunctionArgs) => {
+  const { id } = params;
+  const response = await customFetch(`orders/${id}`);
+  return response.data;
+};
 
 const SingleOrderHistory = () => {
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
   const navigate = useNavigate();
-  // Get the order ID from the URL
-
-  const order = {
-    id: "1",
-    date: "2023-10-01",
-    total: 150.0,
-    status: "Delivered",
-    items: [
-      {
-        name: "Product 1",
-        quantity: 2,
-        price: 50.0,
-      },
-      {
-        name: "Product 2",
-        quantity: 1,
-        price: 50.0,
-      },
-    ],
-  };
+  const singleOrder = useLoaderData() as Order;
 
   useEffect(() => {
     if (!user?.id) {
@@ -37,12 +31,14 @@ const SingleOrderHistory = () => {
     <div className="max-w-screen-2xl mx-auto pt-20 px-5">
       <h1 className="text-3xl font-bold mb-8">Order Details</h1>
       <div className="bg-white border border-gray-200 p-5 overflow-x-auto">
-        <h2 className="text-2xl font-semibold mb-4">Order ID: {order.id}</h2>
-        <p className="mb-2">Date: {order.date}</p>
-        <p className="mb-2">Total: ${order.total.toFixed(2)}</p>
-        <p className="mb-2">Status: {order.status}</p>
+        <h2 className="text-2xl font-semibold mb-4">
+          Order ID: {singleOrder.id}
+        </h2>
+        <p className="mb-2">Date: {formatDate(singleOrder.orderDate)}</p>
+        <p className="mb-2">Total: ${singleOrder.subtotal.toFixed(2)}</p>
+        <p className="mb-2">Status: {singleOrder.orderStatus}</p>
         <h3 className="text-xl font-semibold mt-6 mb-4">Items</h3>
-        <table className="min-w-full bg-white border border-gray-200">
+        <table className="singleOrder-table min-w-full bg-white border border-gray-200">
           <thead>
             <tr>
               <th className="py-3 px-4 border-b">Product Name</th>
@@ -51,14 +47,14 @@ const SingleOrderHistory = () => {
             </tr>
           </thead>
           <tbody>
-            {order.items.map((item, index) => (
-              <tr key={index}>
-                <td className="py-3 px-4 border-b">{item.name}</td>
+            {singleOrder.products.map((product) => (
+              <tr key={nanoid()}>
+                <td className="py-3 px-4 border-b">{product?.title}</td>
                 <td className="py-3 px-4 border-b text-center">
-                  {item.quantity}
+                  {product?.quantity}
                 </td>
                 <td className="py-3 px-4 border-b text-right">
-                  ${item.price.toFixed(2)}
+                  ${product?.price.toFixed(2)}
                 </td>
               </tr>
             ))}
