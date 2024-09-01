@@ -15,6 +15,9 @@
   <li><p>Concurrently - Package that allows you to run multiple scripts at the same time</p></li>
 </ul>
 
+<h2>Video instructions YouTube tutorial for running the application:</h2>
+<a href="https://www.youtube.com/watch?v=M9DHiusoPOI">https://www.youtube.com/watch?v=M9DHiusoPOI</a>
+
 <h2>Instructions - The Fashion Website Template</h2>
 <ol>
   <li><p>To run the app you first need to download and install Node.js and npm on your computer. Here is a link to the tutorial that explains how to install them: <a href="https://www.youtube.com/watch?v=4FAtFwKVhn0" target="_blank">https://www.youtube.com/watch?v=4FAtFwKVhn0</a>. Also here is the link where you can download them: <a href="https://nodejs.org/en" target="_blank">https://nodejs.org/en</a></p></li>
